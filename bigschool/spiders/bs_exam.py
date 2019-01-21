@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup as bs
 import pymysql
 
 class exam(scrapy.Spider):
-    name = "exam"
+    name = "bs-exam"
 
     def start_requests(self):
         data = json.load(open('data_exam.json'))
@@ -41,5 +41,6 @@ class exam(scrapy.Spider):
         cursor.close()
         db.close()
 
+# https://ask.bigschool.vn/ask.html?type=&txtSearch=&o=0&c=12&s=1&t=-1&p=128
 
 # <label class="col-sm-12">Lời giải chi tiết</label>

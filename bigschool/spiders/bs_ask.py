@@ -6,12 +6,12 @@ import pymysql
 
 
 class ask(scrapy.Spider):
-    name = "ask"
+    name = "bs-ask"
     # 941
 
     def start_requests(self):
         data = json.load(open('data_ask.json'))
-        data = data['data'][0]
+        data = data['data'][1]
         if data["status"] == "done":
             exit(0)
         print('----------------------------------------------------------------')
