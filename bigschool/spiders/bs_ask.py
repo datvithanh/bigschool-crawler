@@ -23,7 +23,7 @@ class ask(scrapy.Spider):
 
     def parse(self, response):
         url = response.url
-        config = json.load(open('config.json'))
+        config = json.load(open('config.json'))['database']
         db = pymysql.connect(config['host'], config['user'], config['password'], config['database_name'])
         
         cursor = db.cursor()

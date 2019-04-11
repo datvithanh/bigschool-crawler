@@ -10,6 +10,7 @@ class exam(scrapy.Spider):
     def start_requests(self):
         data = json.load(open('data_exam.json'))
         data = data['data'][2]
+        print(data)
         if data["status"] == "done":
             exit(0)
         print('----------------------------------------------------------------')
@@ -20,7 +21,7 @@ class exam(scrapy.Spider):
             yield scrapy.Request(url=url, cookies=cookies, callback=self.parse)
 
     def parse(self, response):
-        config = json.load(open('config.json'))
+        config = json.load(open('config.json'))['database']
         db = pymysql.connect(config['host'],config['user'],config['password'],config['database_name'])
         cursor = db.cursor()
 
